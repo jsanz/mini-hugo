@@ -3,7 +3,28 @@
       <nav>
         <ul class="menu">
           {{- range .Site.Menus.main }}
-          <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+            {{ if .HasChildren }}
+              <li class="{{ if or  ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}">
+                <a href="{{ .URL | relURL }}">
+                  {{ .Pre }}
+                  <span>{{ .Name }}</span>
+                </a>
+              </li>
+            {{ else }}
+              <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+            {{ end }}
           {{- end }}
         </ul>
+        {{- range .Site.Menus.main }}
+        {{ if and ($currentPage.IsMenuCurrent "main" .) .HasChildren }}
+          <ul class="menu">
+            {{ range .Children }}
+              <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                  <a href="{{ .URL }}">{{ .Name }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end}}
+        {{ end}}
       </nav>
+
