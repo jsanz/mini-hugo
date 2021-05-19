@@ -16,36 +16,4 @@ $ echo 'theme = "mini-hugo"' >> config.toml
 
 At that point you can start adding pages to the `content` folder and decide your website structure.
 
-This site is meant to be used to the bare minimum with a config like this using YAML format:
-
-```yaml
-theme: mini-hugo
-baseURL: "http://localhost"
-title: "A site with Minimal Hugo"
-
-params:
-  author: Jorge Sanz
-
-disableKinds:
-  - taxonomy
-  - term
-  - RSS
-  - sitemap
-  - 404
-
-uglyurls: true
-defaultContentLanguage: en
-menu:
-  main:
-    - name: Home
-      url: ""
-      weight: 1
-    - name: About
-      url: "about.html"
-      weight: 2
-    - name: Help
-      url: "help.html"
-      weight: 3
-```
-
-The menu is generated in the top right corner, and the config removes all taxonomies, RSS, etc.
+This site is meant to be used to the bare minimum with a config like, check the example site provided for reference.
