@@ -1,4 +1,7 @@
-DEST ?= public
+include .env
+export
+
+DEST := ${DEST}
 HUGO_OPTS := --minify --destination $(DEST)
 .DEFAULT_GOAL := build
 
