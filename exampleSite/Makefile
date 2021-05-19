@@ -1,4 +1,4 @@
-DEST := public
+DEST ?= public
 HUGO_OPTS := --minify --destination $(DEST)
 .DEFAULT_GOAL := build
 
