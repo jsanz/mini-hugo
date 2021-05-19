@@ -58,6 +58,8 @@
       }
       .menu li a:visited { color: var(--secondary-0); }
       .menu li a:hover { color: var(--primary-1); }
+      .menu li.active a,
+      .menu li.active a:visited{ color: var(--tertiary-0); }
 
       @media only screen and (max-width: 768px) {
         header h1 {
@@ -150,6 +152,9 @@
       h1, h2, h3, h4 {
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         color: var(--primary-1);
+      }
+      h2 {
+        font-size: 1.6em;
       }
       code {
         font-family: "Lucida Console", Monaco, monospace;

@@ -1,0 +1,16 @@
+theme: mini-hugo
+baseURL: "http://localhost"
+title: "An example site"
+
+params:
+  author: Jorge Sanz
+
+disableKinds:
+  - taxonomy
+  - term
+  - RSS
+  - sitemap
+  - 404
+
+uglyurls: true
+defaultContentLanguage: en
