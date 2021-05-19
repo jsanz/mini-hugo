@@ -1,0 +1,7 @@
+{{- define "main" }}
+      <h1>{{ $.Params.title | markdownify }}</h1>
+
+      <article>
+{{ .Content }}
+      </article>
+{{- end }}

@@ -1,0 +1,9 @@
+{{- if ( $.Params.updated ) }}<p class="date">
+  {{ i18n "last-update" }}: {{ dateFormat "2006/01/02" .Params.updated }}
+</p>
+{{- else }}
+<p class="date">
+  {{ i18n "last-update" }}: {{ .Params.date.Format "2006/01/02"}}
+</p>
+{{ end }}
+      <p class="author">{{ $.Site.Params.author}} &copy;{{ dateFormat "2006" now.UTC}}</p>

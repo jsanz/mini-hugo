@@ -1,0 +1,9 @@
+{{- $currentPage := . -}}
+<h1>{{ .Site.Title }}</h1>
+      <nav>
+        <ul class="menu">
+          {{- range .Site.Menus.main }}
+          <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          {{- end }}
+        </ul>
+      </nav>

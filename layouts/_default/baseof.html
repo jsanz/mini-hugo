@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <style>
+      /* Variables */
+      :root {
+        --main-black: rgb(80,80,80);
+        --main-white: rgb(241, 241, 241);
+        --main-gray: lightgray;
+        --secondary-gray: darkgray;
+
+        --primary-0: #3F306D;
+        --primary-1: #6B608F;
+        --primary-2: #52457E;
+
+        --secondary-0: #759537;
+        --secondary-1: #AAC279;
+        --secondary-2: #8EAB53;
+
+        --tertiary-0: #9F683A;	
+        --tertiary-0: #D0A582;
+        --tertiary-0: #B78459;
+      }
+
+      /* Layout */
+      body {
+        background-color: var(--main-white);
+        color: var(--main-black);
+        max-width: 800px;
+        margin: auto;
+        padding: 1em;
+        line-height: 1.5em;
+      }
+
+
+      /* header and nav menu */
+      header {
+        min-height: 5em;
+        border-bottom: 1px dashed var(--primary-0);
+      }
+      header h1 {
+        text-align: left;
+        float: left;
+        margin: 1em 0;
+        color: var(--primary-0);
+      }
+      nav { float: right; }
+      .menu { padding: 0; }
+      .menu li { display: inline-block; }
+      .menu li a {
+        text-decoration: none;
+        padding: 5px;
+        margin: 0 0.1em;
+        color: var(--secondary-0);
+      }
+      .menu li a:visited { color: var(--secondary-0); }
+      .menu li a:hover { color: var(--primary-1); }
+
+      @media only screen and (max-width: 768px) {
+        header h1 {
+          float: none;
+          margin-bottom: .5em;
+        }
+        nav {
+          display: block;
+          text-align: left;
+          float: none;
+        }
+      }
+      @media only print {
+        header h1 { margin-top: 0px;}
+        nav { display: none;}
+      }
+
+      /* main content */
+      main { clear:both; }
+
+      /* footer */
+      footer {
+        text-align: right;
+        color: var(--secondary-0);
+        border-top: 1px dashed var(--primary-0);
+        padding-top: 1em;
+      }
+      footer a { text-decoration: none; }
+      footer p { margin: 0.1em; }
+
+      /* other elements */
+      hr {
+        border-style: dashed;
+        color: var(--primary-0);
+      }
+
+      /* code */
+      pre {
+        border: 1px solid var(--main-gray)
+        box-shadow: 5px 5px 5px var(--secondary-gray);
+        padding: 1em;
+        overflow-x: auto;
+      }
+      code {
+        background: var(--main-gray);
+      }
+      pre code {
+        background: none;
+      }
+
+      /* misc elements */
+      img,
+      iframe,
+      video {
+        max-width: 100%;
+      }
+      main {
+        hyphens: auto;
+      }
+      blockquote {
+        background: var(--main-gray);
+        border-left: 5px solid var(--secondary-gray-gray);
+        padding: 3px 1em 3px;
+      }
+
+      table {
+        margin: auto;
+        border-top: 1px solid #666;
+        border-bottom: 1px solid #666;
+      }
+      table thead th {
+        border-bottom: 1px solid #ddd;
+      }
+      th,
+      td {
+        padding: 5px;
+      }
+      thead,
+      tfoot,
+      tr:nth-child(even) {
+        background: #eee;
+      }
+
+      /* fonts */
+      body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: var(--primary-1);
+      }
+      code {
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 85%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      {{ partial "header.html" . }}
+    </header>
+
+    <main>
+{{ block "main" . }}{{ end }}
+    </main>
+
+    <footer>
+      {{ partial "footer.html" . }}
+    </footer>
+  </body>
+</html>
