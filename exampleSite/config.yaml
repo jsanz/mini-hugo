@@ -1,5 +1,6 @@
 theme: mini-hugo
-baseURL: "http://localhost"
+themesDir: ../../
+
 title: "An example site"
 
 params:
@@ -12,5 +13,5 @@ disableKinds:
   - sitemap
   - 404
 
-uglyurls: true
+relativeURLs: true
 defaultContentLanguage: en

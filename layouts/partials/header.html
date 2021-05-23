@@ -6,11 +6,11 @@
 <ul class="menu sections" >
 {{ if .IsHome }}
 {{ range .Sections}}
-  <li> <a href="{{ .URL }}index.html">{{ .Title }}</a></li>
+  <li> <a href="{{ .RelPermalink }}index.html">{{ .Title }}</a></li>
 {{ end }}
 {{ else }}
 {{ range .Pages }}
-  <li><a href="{{ .URL }}index.html">{{ .Title }}</a></li>
+  <li><a href="{{ .RelPermalink }}index.html">{{ .Title }}</a></li>
 {{ end }} 
 {{ end }} 
 </ul>
