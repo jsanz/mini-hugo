@@ -2,7 +2,7 @@ include .env
 export
 
 MHDEST := ${MHDEST}
-HUGO_OPTS := --minify --destination $(MHDEST)
+HUGO_OPTS := --destination $(MHDEST)
 .DEFAULT_GOAL := build
 
 .PHONY: clean build serve serve-built
@@ -11,7 +11,7 @@ build:
 	hugo $(HUGO_OPTS)
 
 clean:
-	rm -rf $(DEST)
+	rm -rf $(MHDEST)
 
 serve:
 	hugo serve --port 8080 $(HUGO_OPTS)

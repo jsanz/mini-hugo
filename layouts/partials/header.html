@@ -1,30 +1,27 @@
-{{- $currentPage := . -}}
 <h1>{{ .Site.Title }}</h1>
-      <nav>
-        <ul class="menu">
-          {{- range .Site.Menus.main }}
-            {{ if .HasChildren }}
-              <li class="{{ if or  ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}">
-                <a href="{{ .URL | relURL }}">
-                  {{ .Pre }}
-                  <span>{{ .Name }}</span>
-                </a>
-              </li>
-            {{ else }}
-              <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}"><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-            {{ end }}
-          {{- end }}
-        </ul>
-        {{- range .Site.Menus.main }}
-        {{ if and ($currentPage.IsMenuCurrent "main" .) .HasChildren }}
-          <ul class="menu">
-            {{ range .Children }}
-              <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
-                  <a href="{{ .URL }}">{{ .Name }}</a>
-              </li>
-            {{ end }}
-          </ul>
-        {{ end}}
-        {{ end}}
-      </nav>
-
+<nav>
+<ul  class="menu">
+  {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+</ul>
+<ul class="menu sections" >
+{{ if .IsHome }}
+{{ range .Sections}}
+  <li> <a href="{{ .URL }}index.html">{{ .Title }}</a></li>
+{{ end }}
+{{ else }}
+{{ range .Pages }}
+  <li><a href="{{ .URL }}index.html">{{ .Title }}</a></li>
+{{ end }} 
+{{ end }} 
+</ul>
+</nav>
+{{ define "breadcrumbnav" }}
+{{ if .p1.Parent }}
+{{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
+{{ else if not .p1.IsHome }}
+{{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+{{ end }}
+<li{{ if eq .p1 .p2 }} class="active"{{ end }}>
+  <a href="{{ .p1.Permalink }}index.html">{{ .p1.Title }}</a>
+</li>
+{{ end }}
