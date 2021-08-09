@@ -1,19 +1,19 @@
-<h1>{{ .Site.Title }}</h1>
-<nav>
-<ul  class="menu">
+<h1 class="dark-blue">{{ .Site.Title }}</h1>
+<nav class="pb2 pt2 flex justify-between">
+<div class="">
   {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
-</ul>
-<ul class="menu sections" >
+</div>
+<div class="" >
 {{ if .IsHome }}
 {{ range .Sections}}
-  <li> <a href="{{ .RelPermalink }}index.html">{{ .Title }}</a></li>
+  <a  class="link underline-hover dim gray f5 ml3" href="{{ .RelPermalink }}index.html">{{ .Title }}</a>
 {{ end }}
 {{ else }}
 {{ range .Pages }}
-  <li><a href="{{ .RelPermalink }}index.html">{{ .Title }}</a></li>
+  <a class="link underline-hover dim gray f5 ml3 "href="{{ .RelPermalink }}index.html">{{ .Title }}</a>
 {{ end }} 
 {{ end }} 
-</ul>
+</div>
 </nav>
 {{ define "breadcrumbnav" }}
 {{ if .p1.Parent }}
@@ -21,7 +21,5 @@
 {{ else if not .p1.IsHome }}
 {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
 {{ end }}
-<li{{ if eq .p1 .p2 }} class="active"{{ end }}>
-  <a href="{{ .p1.Permalink }}index.html">{{ .p1.Title }}</a>
-</li>
+  <a class="link underline-hover dim f5 mr3 {{ if eq .p1 .p2 }}b mid-gray{{else}}gray{{ end }}" href="{{ .p1.Permalink }}index.html">{{ .p1.Title }}</a>
 {{ end }}

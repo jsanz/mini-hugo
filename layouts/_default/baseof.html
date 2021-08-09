@@ -4,20 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ .Title }} | {{ .Site.Title }}</title>
-    <link rel="stylesheet" href="css/tachyons.min.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/tachyons.min.css">
   </head>
 
-  <body>
-    <div class="debug debug-grid-16 serif flex flex-column items-center justify-center center pa4 w-two-thirds">
+  <body class="mid-gray bg-light-gray serif f4">
+    <div class="flex flex-column items-center justify-center center pa4 w-two-thirds">
       <header class="tl w-100">
         {{ partial "header.html" . }}
       </header>
   
-      <main class="h-100">
+      <main class="h-100 w-100 pb4 bb bt b--gray ">
         {{ block "main" . }}{{ end }}
       </main>
   
-      <footer>
+      <footer class="w-100 flex items-center justify-between mt2 f5 mid-gray">
         {{ partial "footer.html" . }}
       </footer>
     </div>
