@@ -2,7 +2,7 @@ include .env
 export
 
 MHDEST := ${MHDEST}
-HUGO_OPTS := --destination $(MHDEST) --buildDrafts
+HUGO_OPTS := --destination $(MHDEST) --buildDrafts --themesDir "../.."
 .DEFAULT_GOAL := build
 
 .PHONY: clean build serve serve-built
