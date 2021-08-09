@@ -2,7 +2,7 @@ include .env
 export
 
 MHDEST := ${MHDEST}
-HUGO_OPTS := --destination $(MHDEST) --buildDrafts --disableFastRender
+HUGO_OPTS := --destination $(MHDEST) --buildDrafts
 .DEFAULT_GOAL := build
 
 .PHONY: clean build serve serve-built
